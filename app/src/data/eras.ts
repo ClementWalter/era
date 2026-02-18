@@ -64,21 +64,9 @@ export const ERAS: Era[] = [
   { id: 'claude-sonnet-4.6', name: 'Claude Sonnet 4.6', releaseDate: new Date('2026-02-17'), provider: 'Anthropic' },
   
   // ============ OPENAI GPT ============
-  // GPT-3.5
-  { id: 'gpt-3.5-turbo', name: 'GPT-3.5 Turbo', releaseDate: new Date('2022-11-30'), provider: 'OpenAI' },
-  { id: 'gpt-3.5-turbo-0301', name: 'GPT-3.5 Turbo 0301', releaseDate: new Date('2023-03-01'), provider: 'OpenAI' },
-  { id: 'gpt-3.5-turbo-0613', name: 'GPT-3.5 Turbo 0613', releaseDate: new Date('2023-06-13'), provider: 'OpenAI' },
-  { id: 'gpt-3.5-turbo-1106', name: 'GPT-3.5 Turbo 1106', releaseDate: new Date('2023-11-06'), provider: 'OpenAI' },
-  
-  // GPT-4
+  { id: 'gpt-3.5', name: 'GPT-3.5', releaseDate: new Date('2022-11-30'), provider: 'OpenAI' },
   { id: 'gpt-4', name: 'GPT-4', releaseDate: new Date('2023-03-14'), provider: 'OpenAI' },
-  { id: 'gpt-4-0314', name: 'GPT-4 0314', releaseDate: new Date('2023-03-14'), provider: 'OpenAI' },
-  { id: 'gpt-4-0613', name: 'GPT-4 0613', releaseDate: new Date('2023-06-13'), provider: 'OpenAI' },
-  { id: 'gpt-4-turbo', name: 'GPT-4 Turbo', releaseDate: new Date('2023-11-06'), provider: 'OpenAI' },
-  { id: 'gpt-4-turbo-2024-04-09', name: 'GPT-4 Turbo 2024-04-09', releaseDate: new Date('2024-04-09'), provider: 'OpenAI' },
   { id: 'gpt-4o', name: 'GPT-4o', releaseDate: new Date('2024-05-13'), provider: 'OpenAI' },
-  { id: 'gpt-4o-2024-05-13', name: 'GPT-4o 2024-05-13', releaseDate: new Date('2024-05-13'), provider: 'OpenAI' },
-  { id: 'gpt-4o-2024-08-06', name: 'GPT-4o 2024-08-06', releaseDate: new Date('2024-08-06'), provider: 'OpenAI' },
   { id: 'gpt-4o-mini', name: 'GPT-4o Mini', releaseDate: new Date('2024-07-18'), provider: 'OpenAI' },
   
   // o1 series
@@ -89,12 +77,21 @@ export const ERAS: Era[] = [
   
   // o3 series
   { id: 'o3-mini', name: 'o3 Mini', releaseDate: new Date('2025-01-31'), provider: 'OpenAI' },
+  { id: 'o3-mini-high', name: 'o3 Mini High', releaseDate: new Date('2025-01-31'), provider: 'OpenAI' },
+  { id: 'gpt-4.5', name: 'GPT-4.5', releaseDate: new Date('2025-02-27'), provider: 'OpenAI' },
+  { id: 'gpt-4.1', name: 'GPT-4.1', releaseDate: new Date('2025-04-14'), provider: 'OpenAI' },
+  { id: 'gpt-4.1-mini', name: 'GPT-4.1 Mini', releaseDate: new Date('2025-04-14'), provider: 'OpenAI' },
   { id: 'o3', name: 'o3', releaseDate: new Date('2025-04-16'), provider: 'OpenAI' },
+  { id: 'o4-mini', name: 'o4 Mini', releaseDate: new Date('2025-04-16'), provider: 'OpenAI' },
+  { id: 'o4-mini-high', name: 'o4 Mini High', releaseDate: new Date('2025-04-16'), provider: 'OpenAI' },
+  { id: 'o3-pro', name: 'o3 Pro', releaseDate: new Date('2025-06-15'), provider: 'OpenAI' },
   
-  // GPT-5
-  { id: 'gpt-5', name: 'GPT-5', releaseDate: new Date('2025-06-01'), provider: 'OpenAI' },
-  { id: 'gpt-5-turbo', name: 'GPT-5 Turbo', releaseDate: new Date('2025-08-15'), provider: 'OpenAI' },
-  { id: 'gpt-5o', name: 'GPT-5o', releaseDate: new Date('2025-11-01'), provider: 'OpenAI' },
+  // GPT-5 series
+  { id: 'gpt-5', name: 'GPT-5', releaseDate: new Date('2025-08-07'), provider: 'OpenAI' },
+  { id: 'gpt-5-mini', name: 'GPT-5 Mini', releaseDate: new Date('2025-08-07'), provider: 'OpenAI' },
+  { id: 'gpt-5.1', name: 'GPT-5.1', releaseDate: new Date('2025-11-12'), provider: 'OpenAI' },
+  { id: 'gpt-5.2', name: 'GPT-5.2', releaseDate: new Date('2025-12-11'), provider: 'OpenAI' },
+  { id: 'gpt-5.3-codex', name: 'GPT-5.3 Codex', releaseDate: new Date('2026-02-05'), provider: 'OpenAI' },
   
   // ============ GOOGLE GEMINI ============
   { id: 'gemini-1.0-pro', name: 'Gemini 1.0 Pro', releaseDate: new Date('2023-12-06'), provider: 'Google' },

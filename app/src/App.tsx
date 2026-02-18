@@ -1,7 +1,7 @@
 import { useState, useMemo } from 'react';
 import { ERAS, DEFAULT_ERA, MONTH_NAMES, LEAP_MONTH, MONTH_INFO } from './data/eras';
 import type { Era } from './data/eras';
-import { toEraDate, formatEraDate, getDaysInMonth } from './utils/eraDate';
+import { toEraDate, toGregorian, formatEraDate, getDaysInMonth } from './utils/eraDate';
 import type { EraDate } from './utils/eraDate';
 
 function App() {
@@ -13,6 +13,11 @@ function App() {
   
   const [viewYear, setViewYear] = useState(todayEra.year);
   const [viewMonth, setViewMonth] = useState(todayEra.month);
+  const [selectedDay, setSelectedDay] = useState<EraDate | null>(null);
+  
+  // The date to display (selected or today)
+  const displayDate = selectedDay || todayEra;
+  const displayGregorian = useMemo(() => toGregorian(displayDate), [displayDate]);
   
   // Group eras by provider
   const groupedEras = useMemo(() => {
@@ -75,6 +80,11 @@ function App() {
   const goToToday = () => {
     setViewYear(todayEra.year);
     setViewMonth(todayEra.month);
+    setSelectedDay(null);
+  };
+  
+  const selectDay = (eraDay: EraDate) => {
+    setSelectedDay(eraDay);
   };
   
   const accentColor = isDark ? 'text-red-500' : 'text-blue-600';
@@ -129,14 +139,21 @@ function App() {
       
       {/* Main Content */}
       <main className="flex-1 overflow-y-auto max-w-4xl mx-auto p-3 w-full">
-        {/* Today Display */}
+        {/* Selected/Today Display */}
         <div className="text-center mb-3">
-          <p className={`text-xs ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>Today</p>
+          <p className={`text-xs ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+            {selectedDay ? 'Selected' : 'Today'}
+          </p>
           <p className={`text-xl font-bold ${accentColor}`}>
-            {formatEraDate(todayEra)}
+            {formatEraDate(displayDate)}
           </p>
           <p className={`text-xs ${isDark ? 'text-gray-500' : 'text-gray-500'}`}>
-            {selectedEra.name} Era
+            {displayGregorian.toLocaleDateString('en-US', { 
+              weekday: 'short',
+              year: 'numeric', 
+              month: 'short', 
+              day: 'numeric' 
+            })}
           </p>
         </div>
         
@@ -200,14 +217,21 @@ function App() {
                 eraDay.month === todayEra.month && 
                 eraDay.year === todayEra.year;
               
+              const isSelected = selectedDay &&
+                eraDay.day === selectedDay.day && 
+                eraDay.month === selectedDay.month && 
+                eraDay.year === selectedDay.year;
+              
               return (
                 <div
                   key={idx}
+                  onClick={() => selectDay(eraDay)}
                   className={`
                     aspect-square flex items-center justify-center rounded-lg text-sm
                     ${isToday ? `${accentBg} text-white font-bold` : ''}
-                    ${!isToday && isDark ? 'hover:bg-gray-800' : ''}
-                    ${!isToday && !isDark ? 'hover:bg-gray-200' : ''}
+                    ${isSelected && !isToday ? `ring-2 ${isDark ? 'ring-red-500 bg-red-500/20' : 'ring-blue-500 bg-blue-500/20'} font-semibold` : ''}
+                    ${!isToday && !isSelected && isDark ? 'hover:bg-gray-800' : ''}
+                    ${!isToday && !isSelected && !isDark ? 'hover:bg-gray-200' : ''}
                     cursor-pointer transition-colors
                   `}
                 >

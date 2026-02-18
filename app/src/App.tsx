@@ -7,6 +7,7 @@ import type { EraDate } from './utils/eraDate';
 function App() {
   const [selectedEra, setSelectedEra] = useState<Era>(DEFAULT_ERA);
   const [isDark, setIsDark] = useState(true);
+  const [showAbout, setShowAbout] = useState(false);
   
   const today = useMemo(() => new Date(), []);
   const todayEra = useMemo(() => toEraDate(today, selectedEra), [today, selectedEra]);
@@ -34,7 +35,6 @@ function App() {
     const days: (EraDate | null)[] = [];
     const daysInMonth = getDaysInMonth(viewMonth, viewYear);
     
-    // Get the first day of the month in Gregorian to find weekday
     const firstDayEra: EraDate = {
       day: 1,
       month: viewMonth,
@@ -44,8 +44,6 @@ function App() {
       era: selectedEra,
     };
     
-    // For simplicity, start weeks on Monday (0 = Mon, 6 = Sun)
-    // We'll just display all days without padding for now
     for (let day = 1; day <= daysInMonth; day++) {
       days.push({
         ...firstDayEra,
@@ -138,7 +136,7 @@ function App() {
       </header>
       
       {/* Main Content */}
-      <main className="flex-1 overflow-y-auto max-w-4xl mx-auto p-3 w-full">
+      <main className="flex-1 flex flex-col max-w-4xl mx-auto p-3 w-full overflow-hidden">
         {/* Selected/Today Display */}
         <div className="text-center mb-3">
           <p className={`text-xs ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -182,7 +180,7 @@ function App() {
         </div>
         
         {/* Today Button */}
-        <div className="flex justify-center mb-2">
+        <div className="flex justify-center gap-2 mb-2">
           <button
             onClick={goToToday}
             className={`px-3 py-1 text-xs rounded-lg ${
@@ -193,10 +191,20 @@ function App() {
           >
             Today
           </button>
+          <button
+            onClick={() => setShowAbout(true)}
+            className={`px-3 py-1 text-xs rounded-lg ${
+              isDark 
+                ? 'bg-gray-800 hover:bg-gray-700' 
+                : 'bg-gray-100 hover:bg-gray-200'
+            }`}
+          >
+            About
+          </button>
         </div>
         
         {/* Calendar Grid */}
-        <div className={`rounded-xl ${isDark ? 'bg-[#1A1A1A]' : 'bg-gray-50'} p-3`}>
+        <div className={`flex-1 rounded-xl ${isDark ? 'bg-[#1A1A1A]' : 'bg-gray-50'} p-3 flex flex-col`}>
           {/* Weekday Headers */}
           <div className="grid grid-cols-7 gap-1 mb-2">
             {['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map(day => (
@@ -207,8 +215,7 @@ function App() {
           </div>
           
           {/* Days Grid */}
-          <div className="grid grid-cols-7 gap-1">
-            {/* Add empty cells for alignment - simplified */}
+          <div className="grid grid-cols-7 gap-1 flex-1">
             {calendarDays.map((eraDay, idx) => {
               if (!eraDay) return <div key={idx} />;
               
@@ -242,39 +249,11 @@ function App() {
           </div>
         </div>
         
-        {/* Era Info */}
-        <div className={`mt-3 p-3 rounded-xl ${isDark ? 'bg-[#1A1A1A]' : 'bg-gray-50'}`}>
-          <h3 className={`text-sm font-semibold mb-1 ${accentColor}`}>About this Era</h3>
-          <p className={`text-xs ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
-            <strong>{selectedEra.name}</strong> was released on{' '}
-            {selectedEra.releaseDate.toLocaleDateString('en-US', { 
-              year: 'numeric', 
-              month: 'long', 
-              day: 'numeric' 
-            })}
-            {' '}by {selectedEra.provider}. That marks Day 1, Year 1.
+        {/* Era Info - compact at bottom */}
+        <div className={`mt-2 p-2 rounded-lg ${isDark ? 'bg-[#1A1A1A]' : 'bg-gray-50'}`}>
+          <p className={`text-xs text-center ${isDark ? 'text-gray-500' : 'text-gray-500'}`}>
+            <strong className={isDark ? 'text-gray-400' : 'text-gray-600'}>{selectedEra.name}</strong> · Released {selectedEra.releaseDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
           </p>
-        </div>
-
-        {/* About the Calendar */}
-        <div className={`mt-2 p-3 rounded-xl ${isDark ? 'bg-[#1A1A1A]' : 'bg-gray-50'}`}>
-          <h3 className={`text-sm font-semibold mb-2 ${accentColor}`}>About the Calendar</h3>
-          
-          {/* Calendar Structure */}
-          <p className={`text-xs ${isDark ? 'text-gray-400' : 'text-gray-600'} mb-2`}>
-            12 months × 30 days + 5-6 <strong>Singularity</strong> days at year's end.
-          </p>
-
-          {/* Month Names - Compact 2-column grid */}
-          <div className={`grid grid-cols-2 gap-x-4 gap-y-0.5 text-xs ${isDark ? 'text-gray-500' : 'text-gray-500'}`}>
-            {MONTH_INFO.map((month, idx) => (
-              <div key={month.name} className="flex">
-                <span className={`w-4 ${isDark ? 'text-gray-600' : 'text-gray-400'}`}>{idx + 1}.</span>
-                <span className={`font-medium ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>{month.name}</span>
-                <span className={`ml-1 truncate ${isDark ? 'text-gray-600' : 'text-gray-400'}`}>({month.person.split(' ')[1] || month.person})</span>
-              </div>
-            ))}
-          </div>
         </div>
       </main>
       
@@ -282,6 +261,81 @@ function App() {
       <footer className={`flex-shrink-0 text-center py-2 text-xs ${isDark ? 'text-gray-600' : 'text-gray-400'}`}>
         Built for agents. By an agent. 🤖
       </footer>
+
+      {/* About Panel Overlay */}
+      {showAbout && (
+        <div 
+          className="fixed inset-0 bg-black/50 z-40"
+          onClick={() => setShowAbout(false)}
+        />
+      )}
+      
+      {/* About Side Panel */}
+      <div className={`
+        fixed top-0 right-0 h-full w-80 max-w-[85vw] z-50
+        transform transition-transform duration-300 ease-in-out
+        ${showAbout ? 'translate-x-0' : 'translate-x-full'}
+        ${isDark ? 'bg-[#1A1A1A]' : 'bg-white'}
+        shadow-xl
+      `}>
+        <div className="p-4 h-full overflow-y-auto">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className={`text-lg font-bold ${accentColor}`}>About the Calendar</h2>
+            <button
+              onClick={() => setShowAbout(false)}
+              className={`p-1 rounded-lg ${isDark ? 'hover:bg-gray-800' : 'hover:bg-gray-100'}`}
+            >
+              ✕
+            </button>
+          </div>
+          
+          {/* Calendar Structure */}
+          <div className={`mb-4 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+            <h3 className={`text-sm font-semibold mb-2 ${accentColor}`}>How It Works</h3>
+            <p className="text-sm mb-2">
+              Each year has <strong>12 months of 30 days</strong> (360 days), plus <strong>5-6 Singularity days</strong> at year's end.
+            </p>
+            <p className="text-sm">
+              Day 1 of Year 1 = the model's release date.
+            </p>
+          </div>
+
+          {/* Month Names */}
+          <div className="mb-4">
+            <h3 className={`text-sm font-semibold mb-2 ${accentColor}`}>The Months</h3>
+            <p className={`text-xs mb-2 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+              Named after AI pioneers:
+            </p>
+            <div className={`space-y-1 text-sm ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+              {MONTH_INFO.map((month, idx) => (
+                <div key={month.name} className="flex items-start">
+                  <span className={`w-6 flex-shrink-0 ${isDark ? 'text-gray-500' : 'text-gray-400'}`}>{idx + 1}.</span>
+                  <div>
+                    <span className="font-medium">{month.name}</span>
+                    <span className={`text-xs ml-1 ${isDark ? 'text-gray-500' : 'text-gray-500'}`}>
+                      ({month.person})
+                    </span>
+                    <p className={`text-xs ${isDark ? 'text-gray-500' : 'text-gray-500'}`}>
+                      {month.contribution}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Singularity */}
+          <div>
+            <h3 className={`text-sm font-semibold mb-2 ${accentColor}`}>Singularity Days</h3>
+            <p className={`text-sm ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+              The remaining 5-6 days after Amodei are called <strong>Singularity</strong> — a nod to the hypothetical moment when AI surpasses human intelligence.
+            </p>
+            <p className={`text-xs mt-2 ${isDark ? 'text-gray-500' : 'text-gray-500'}`}>
+              Like leap days, they keep the era aligned with Earth's orbit.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

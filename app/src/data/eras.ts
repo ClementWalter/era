@@ -127,10 +127,13 @@ export const ERAS: Era[] = [
   // ============ MISTRAL ============
   // 2023
   { id: 'mistral-7b', name: 'Mistral 7B', releaseDate: new Date('2023-09-27'), provider: 'Mistral' },
-  { id: 'mixtral-8x7b', name: 'Mixtral 8x7B', releaseDate: new Date('2023-12-11'), provider: 'Mistral' },
+  { id: 'mixtral-8x7b', name: 'Mixtral 8x7B', releaseDate: new Date('2023-12-09'), provider: 'Mistral' },
+  { id: 'mistral-medium', name: 'Mistral Medium', releaseDate: new Date('2023-12-01'), provider: 'Mistral' },
   // 2024
-  { id: 'mixtral-8x22b', name: 'Mixtral 8x22B', releaseDate: new Date('2024-04-17'), provider: 'Mistral' },
-  { id: 'codestral', name: 'Codestral', releaseDate: new Date('2024-05-29'), provider: 'Mistral' },
+  { id: 'mistral-small', name: 'Mistral Small', releaseDate: new Date('2024-02-26'), provider: 'Mistral' },
+  { id: 'mistral-large', name: 'Mistral Large', releaseDate: new Date('2024-02-26'), provider: 'Mistral' },
+  { id: 'mixtral-8x22b', name: 'Mixtral 8x22B', releaseDate: new Date('2024-04-10'), provider: 'Mistral' },
+  { id: 'codestral-22b', name: 'Codestral 22B', releaseDate: new Date('2024-05-29'), provider: 'Mistral' },
   { id: 'codestral-mamba', name: 'Codestral Mamba 7B', releaseDate: new Date('2024-07-01'), provider: 'Mistral' },
   { id: 'mathstral-7b', name: 'Mathstral 7B', releaseDate: new Date('2024-07-16'), provider: 'Mistral' },
   { id: 'mistral-large-2', name: 'Mistral Large 2', releaseDate: new Date('2024-07-24'), provider: 'Mistral' },

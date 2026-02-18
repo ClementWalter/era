@@ -1,0 +1,37 @@
+# TEST PHASE — {props.phaseName}
+
+Phase ID: {props.phaseId}
+
+## Objective
+
+Write and run tests for the implemented code.
+
+## Phase Description
+
+{props.phaseDescription}
+
+## Project-Specific Instructions
+
+{props.projectInstructions}
+
+## Testing Guidelines
+
+1. Focus on date calculation logic (most critical)
+2. Test era conversion accuracy
+3. Test edge cases:
+   - Day 1 of an era
+   - Year transitions
+   - Leap days (Singularity)
+4. Use Vitest for unit tests
+5. Test component rendering with React Testing Library
+
+## Test Coverage Priorities
+
+1. **Era date calculations** — Must be 100% correct
+2. **Month name mapping** — Verify all 12 months + Singularity
+3. **Model release dates** — Verify against official sources
+4. **UI interactions** — Era selector, navigation, theme toggle
+
+## REQUIRED OUTPUT
+
+{props.schema}

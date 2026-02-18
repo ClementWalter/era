@@ -1,0 +1,41 @@
+# DEPLOY PHASE — {props.phaseName}
+
+Phase ID: {props.phaseId}
+
+## Objective
+
+Build and deploy the Era calendar app to Scaleway.
+
+## Phase Description
+
+{props.phaseDescription}
+
+## Project-Specific Instructions
+
+{props.projectInstructions}
+
+## Deployment Steps
+
+1. **Build the production bundle**
+   ```bash
+   cd /home/clement/era/app
+   bun run build
+   ```
+
+2. **Create Dockerfile** (if not exists)
+   - Use nginx to serve static files
+   - Copy dist/ to nginx html folder
+
+3. **Deploy using Scaleway skill**
+   ```bash
+   uv run ~/.claude/skills/scaleway-dev/scripts/deploy.py --auto
+   ```
+
+4. **Verify deployment**
+   - Check health endpoint
+   - Verify all eras load correctly
+   - Test theme switching
+
+## REQUIRED OUTPUT
+
+{props.schema}

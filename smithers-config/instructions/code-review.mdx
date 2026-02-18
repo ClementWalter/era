@@ -1,0 +1,47 @@
+# CODE REVIEW — {props.phaseName}
+
+Phase ID: {props.phaseId}
+
+## Objective
+
+Review the implemented code for quality, correctness, and adherence to requirements.
+
+## Phase Description
+
+{props.phaseDescription}
+
+## Project-Specific Instructions
+
+{props.projectInstructions}
+
+## Review Checklist
+
+### Functionality
+- [ ] Does the code match the PRD requirements?
+- [ ] Are date calculations correct?
+- [ ] Does the UI match the design spec (colors, layout)?
+
+### Code Quality
+- [ ] TypeScript types are strict and meaningful
+- [ ] No `any` types without justification
+- [ ] Functions are small and focused
+- [ ] No code duplication
+
+### React Best Practices
+- [ ] Components are properly memoized if needed
+- [ ] useEffect dependencies are correct
+- [ ] State is lifted appropriately
+- [ ] Props are well-typed
+
+### Styling
+- [ ] TailwindCSS classes are used consistently
+- [ ] Dark/light themes work correctly
+- [ ] Responsive design works on mobile
+
+### Performance
+- [ ] No unnecessary re-renders
+- [ ] Large data sets are handled efficiently
+
+## REQUIRED OUTPUT
+
+{props.schema}

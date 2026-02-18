@@ -20,6 +20,21 @@ export const MONTH_NAMES = [
   'Amodei',    // Dario Amodei
 ] as const;
 
+export const MONTH_INFO = [
+  { name: 'Turing', person: 'Alan Turing', contribution: 'Father of computer science, Turing test' },
+  { name: 'Shannon', person: 'Claude Shannon', contribution: 'Information theory' },
+  { name: 'McCarthy', person: 'John McCarthy', contribution: 'Coined "Artificial Intelligence"' },
+  { name: 'Minsky', person: 'Marvin Minsky', contribution: 'Co-founder of MIT AI Lab' },
+  { name: 'Hinton', person: 'Geoffrey Hinton', contribution: 'Deep learning, backpropagation' },
+  { name: 'LeCun', person: 'Yann LeCun', contribution: 'Convolutional neural networks' },
+  { name: 'Bengio', person: 'Yoshua Bengio', contribution: 'Deep learning research' },
+  { name: 'Hochreiter', person: 'Sepp Hochreiter', contribution: 'LSTM networks' },
+  { name: 'Vaswani', person: 'Ashish Vaswani', contribution: 'Transformer architecture' },
+  { name: 'Sutskever', person: 'Ilya Sutskever', contribution: 'Co-founder OpenAI, scaling laws' },
+  { name: 'Hassabis', person: 'Demis Hassabis', contribution: 'DeepMind, AlphaGo, AlphaFold' },
+  { name: 'Amodei', person: 'Dario Amodei', contribution: 'Anthropic, AI safety' },
+] as const;
+
 export const LEAP_MONTH = 'Singularity';
 
 export const ERAS: Era[] = [

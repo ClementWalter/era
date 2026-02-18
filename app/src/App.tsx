@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { ERAS, DEFAULT_ERA, MONTH_NAMES, LEAP_MONTH } from './data/eras';
+import { ERAS, DEFAULT_ERA, MONTH_NAMES, LEAP_MONTH, MONTH_INFO } from './data/eras';
 import type { Era } from './data/eras';
 import { toEraDate, formatEraDate, getDaysInMonth } from './utils/eraDate';
 import type { EraDate } from './utils/eraDate';
@@ -232,6 +232,46 @@ function App() {
           </p>
           <p className={`text-sm mt-2 ${isDark ? 'text-gray-500' : 'text-gray-500'}`}>
             That date marks Day 1 of Year 1 in this era.
+          </p>
+        </div>
+
+        {/* About the Calendar */}
+        <div className={`mt-4 p-4 rounded-xl ${isDark ? 'bg-[#1A1A1A]' : 'bg-gray-50'}`}>
+          <h3 className={`font-semibold mb-3 ${accentColor}`}>About the Calendar</h3>
+          
+          {/* Calendar Structure */}
+          <div className={`text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'} mb-4`}>
+            <p className="mb-2">
+              Each year has <strong>12 months of 30 days</strong> (360 days), 
+              plus <strong>5-6 Singularity days</strong> at year's end.
+            </p>
+          </div>
+
+          {/* Month Names */}
+          <h4 className={`text-sm font-medium mb-2 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+            The Months
+          </h4>
+          <div className={`text-xs space-y-1 mb-4 ${isDark ? 'text-gray-500' : 'text-gray-500'}`}>
+            {MONTH_INFO.map((month, idx) => (
+              <div key={month.name} className="flex">
+                <span className={`w-6 ${isDark ? 'text-gray-600' : 'text-gray-400'}`}>{idx + 1}.</span>
+                <span className={`w-24 font-medium ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>{month.name}</span>
+                <span className="flex-1">
+                  <span className={isDark ? 'text-gray-400' : 'text-gray-600'}>{month.person}</span>
+                  <span className={isDark ? 'text-gray-600' : 'text-gray-400'}> — {month.contribution}</span>
+                </span>
+              </div>
+            ))}
+          </div>
+
+          {/* Singularity */}
+          <h4 className={`text-sm font-medium mb-2 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+            Singularity Days
+          </h4>
+          <p className={`text-xs ${isDark ? 'text-gray-500' : 'text-gray-500'}`}>
+            The remaining 5-6 days after Amodei are called <strong className={isDark ? 'text-gray-400' : 'text-gray-600'}>Singularity</strong> — 
+            a nod to the hypothetical moment when AI surpasses human intelligence. 
+            Like leap days in the Gregorian calendar, they keep the era aligned with Earth's orbit.
           </p>
         </div>
       </main>

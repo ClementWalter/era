@@ -94,17 +94,26 @@ export const ERAS: Era[] = [
   { id: 'gpt-5.3-codex', name: 'GPT-5.3 Codex', releaseDate: new Date('2026-02-05'), provider: 'OpenAI' },
   
   // ============ GOOGLE GEMINI ============
-  { id: 'gemini-1.0-pro', name: 'Gemini 1.0 Pro', releaseDate: new Date('2023-12-06'), provider: 'Google' },
+  // 2023
+  { id: 'bard', name: 'Bard', releaseDate: new Date('2023-03-21'), provider: 'Google' },
+  { id: 'gemini-1.0-nano', name: 'Gemini 1.0 Nano', releaseDate: new Date('2023-12-06'), provider: 'Google' },
+  { id: 'gemini-1.0-pro', name: 'Gemini 1.0 Pro', releaseDate: new Date('2023-12-13'), provider: 'Google' },
+  // 2024
   { id: 'gemini-1.0-ultra', name: 'Gemini 1.0 Ultra', releaseDate: new Date('2024-02-08'), provider: 'Google' },
   { id: 'gemini-1.5-pro', name: 'Gemini 1.5 Pro', releaseDate: new Date('2024-02-15'), provider: 'Google' },
   { id: 'gemini-1.5-flash', name: 'Gemini 1.5 Flash', releaseDate: new Date('2024-05-14'), provider: 'Google' },
-  { id: 'gemini-1.5-pro-002', name: 'Gemini 1.5 Pro 002', releaseDate: new Date('2024-09-24'), provider: 'Google' },
-  { id: 'gemini-1.5-flash-002', name: 'Gemini 1.5 Flash 002', releaseDate: new Date('2024-09-24'), provider: 'Google' },
-  { id: 'gemini-2.0-flash', name: 'Gemini 2.0 Flash', releaseDate: new Date('2024-12-11'), provider: 'Google' },
-  { id: 'gemini-2.0-flash-thinking', name: 'Gemini 2.0 Flash Thinking', releaseDate: new Date('2024-12-19'), provider: 'Google' },
+  // 2025
+  { id: 'gemini-2.0-flash', name: 'Gemini 2.0 Flash', releaseDate: new Date('2025-01-30'), provider: 'Google' },
+  { id: 'gemini-2.0-flash-lite', name: 'Gemini 2.0 Flash-Lite', releaseDate: new Date('2025-02-01'), provider: 'Google' },
+  { id: 'gemini-2.0-pro', name: 'Gemini 2.0 Pro', releaseDate: new Date('2025-02-05'), provider: 'Google' },
   { id: 'gemini-2.5-pro', name: 'Gemini 2.5 Pro', releaseDate: new Date('2025-03-25'), provider: 'Google' },
   { id: 'gemini-2.5-flash', name: 'Gemini 2.5 Flash', releaseDate: new Date('2025-04-17'), provider: 'Google' },
-  { id: 'gemini-3.0-pro', name: 'Gemini 3.0 Pro', releaseDate: new Date('2025-12-01'), provider: 'Google' },
+  { id: 'gemini-2.5-flash-lite', name: 'Gemini 2.5 Flash-Lite', releaseDate: new Date('2025-06-17'), provider: 'Google' },
+  { id: 'gemini-2.5-flash-image', name: 'Gemini 2.5 Flash Image', releaseDate: new Date('2025-08-26'), provider: 'Google' },
+  { id: 'gemini-3-pro', name: 'Gemini 3 Pro', releaseDate: new Date('2025-11-18'), provider: 'Google' },
+  { id: 'gemini-3-pro-image', name: 'Gemini 3 Pro Image', releaseDate: new Date('2025-11-20'), provider: 'Google' },
+  { id: 'gemini-3-deep-think', name: 'Gemini 3 Deep Think', releaseDate: new Date('2025-12-03'), provider: 'Google' },
+  { id: 'gemini-3-flash', name: 'Gemini 3 Flash', releaseDate: new Date('2025-12-17'), provider: 'Google' },
   
   // ============ META LLAMA ============
   { id: 'llama-2-7b', name: 'Llama 2 7B', releaseDate: new Date('2023-07-18'), provider: 'Meta' },

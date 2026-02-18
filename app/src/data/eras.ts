@@ -192,4 +192,5 @@ export const ERAS: Era[] = [
   
 ].sort((a, b) => b.releaseDate.getTime() - a.releaseDate.getTime());
 
-export const DEFAULT_ERA = ERAS.find(e => e.id === 'claude-3.5-sonnet')!;
+// Default to most recent model (list is sorted newest first)
+export const DEFAULT_ERA = ERAS[0];

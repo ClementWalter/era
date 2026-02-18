@@ -40,35 +40,28 @@ export const LEAP_MONTH = 'Singularity';
 export const ERAS: Era[] = [
   // ============ ANTHROPIC CLAUDE ============
   // Claude 1.x
-  { id: 'claude-1.0', name: 'Claude 1.0', releaseDate: new Date('2023-03-14'), provider: 'Anthropic' },
-  { id: 'claude-1.3', name: 'Claude 1.3', releaseDate: new Date('2023-03-17'), provider: 'Anthropic' },
-  { id: 'claude-instant-1.0', name: 'Claude Instant 1.0', releaseDate: new Date('2023-03-14'), provider: 'Anthropic' },
-  { id: 'claude-instant-1.1', name: 'Claude Instant 1.1', releaseDate: new Date('2023-03-24'), provider: 'Anthropic' },
+  { id: 'claude-1', name: 'Claude', releaseDate: new Date('2023-03-14'), provider: 'Anthropic' },
   { id: 'claude-instant-1.2', name: 'Claude Instant 1.2', releaseDate: new Date('2023-08-09'), provider: 'Anthropic' },
   
   // Claude 2.x
-  { id: 'claude-2.0', name: 'Claude 2.0', releaseDate: new Date('2023-07-11'), provider: 'Anthropic' },
+  { id: 'claude-2', name: 'Claude 2', releaseDate: new Date('2023-07-11'), provider: 'Anthropic' },
   { id: 'claude-2.1', name: 'Claude 2.1', releaseDate: new Date('2023-11-21'), provider: 'Anthropic' },
   
   // Claude 3.x
-  { id: 'claude-3-opus', name: 'Claude 3 Opus', releaseDate: new Date('2024-03-04'), provider: 'Anthropic' },
-  { id: 'claude-3-sonnet', name: 'Claude 3 Sonnet', releaseDate: new Date('2024-03-04'), provider: 'Anthropic' },
-  { id: 'claude-3-haiku', name: 'Claude 3 Haiku', releaseDate: new Date('2024-03-13'), provider: 'Anthropic' },
+  { id: 'claude-3', name: 'Claude 3', releaseDate: new Date('2024-03-04'), provider: 'Anthropic' },
   { id: 'claude-3.5-sonnet', name: 'Claude 3.5 Sonnet', releaseDate: new Date('2024-06-20'), provider: 'Anthropic' },
-  { id: 'claude-3.5-sonnet-v2', name: 'Claude 3.5 Sonnet v2', releaseDate: new Date('2024-10-22'), provider: 'Anthropic' },
-  { id: 'claude-3.5-haiku', name: 'Claude 3.5 Haiku', releaseDate: new Date('2024-11-05'), provider: 'Anthropic' },
-  { id: 'claude-3.6-sonnet', name: 'Claude 3.6 Sonnet', releaseDate: new Date('2025-01-15'), provider: 'Anthropic' },
+  { id: 'claude-3.5-haiku', name: 'Claude 3.5 Haiku', releaseDate: new Date('2024-10-22'), provider: 'Anthropic' },
   { id: 'claude-3.7-sonnet', name: 'Claude 3.7 Sonnet', releaseDate: new Date('2025-02-24'), provider: 'Anthropic' },
   
   // Claude 4.x
-  { id: 'claude-4-haiku', name: 'Claude 4 Haiku', releaseDate: new Date('2025-04-15'), provider: 'Anthropic' },
-  { id: 'claude-4-sonnet', name: 'Claude 4 Sonnet', releaseDate: new Date('2025-05-22'), provider: 'Anthropic' },
-  { id: 'claude-4-opus', name: 'Claude 4 Opus', releaseDate: new Date('2025-05-22'), provider: 'Anthropic' },
-  { id: 'claude-4.5-haiku', name: 'Claude 4.5 Haiku', releaseDate: new Date('2025-09-10'), provider: 'Anthropic' },
-  { id: 'claude-4.5-sonnet', name: 'Claude 4.5 Sonnet', releaseDate: new Date('2025-10-01'), provider: 'Anthropic' },
-  { id: 'claude-4.5-opus', name: 'Claude 4.5 Opus', releaseDate: new Date('2025-11-15'), provider: 'Anthropic' },
-  { id: 'claude-4.6-sonnet', name: 'Claude 4.6 Sonnet', releaseDate: new Date('2026-01-20'), provider: 'Anthropic' },
-  { id: 'claude-4.6-opus', name: 'Claude 4.6 Opus', releaseDate: new Date('2026-02-01'), provider: 'Anthropic' },
+  { id: 'claude-sonnet-4', name: 'Claude Sonnet 4', releaseDate: new Date('2025-05-22'), provider: 'Anthropic' },
+  { id: 'claude-opus-4', name: 'Claude Opus 4', releaseDate: new Date('2025-05-22'), provider: 'Anthropic' },
+  { id: 'claude-opus-4.1', name: 'Claude Opus 4.1', releaseDate: new Date('2025-08-05'), provider: 'Anthropic' },
+  { id: 'claude-sonnet-4.5', name: 'Claude Sonnet 4.5', releaseDate: new Date('2025-09-29'), provider: 'Anthropic' },
+  { id: 'claude-haiku-4.5', name: 'Claude Haiku 4.5', releaseDate: new Date('2025-10-15'), provider: 'Anthropic' },
+  { id: 'claude-opus-4.5', name: 'Claude Opus 4.5', releaseDate: new Date('2025-11-24'), provider: 'Anthropic' },
+  { id: 'claude-opus-4.6', name: 'Claude Opus 4.6', releaseDate: new Date('2026-02-05'), provider: 'Anthropic' },
+  { id: 'claude-sonnet-4.6', name: 'Claude Sonnet 4.6', releaseDate: new Date('2026-02-17'), provider: 'Anthropic' },
   
   // ============ OPENAI GPT ============
   // GPT-3.5

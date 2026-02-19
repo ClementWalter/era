@@ -114,6 +114,7 @@ export const ERAS: Era[] = [
   { id: 'gemini-3-pro-image', name: 'Gemini 3 Pro Image', releaseDate: new Date('2025-11-20'), provider: 'Google' },
   { id: 'gemini-3-deep-think', name: 'Gemini 3 Deep Think', releaseDate: new Date('2025-12-03'), provider: 'Google' },
   { id: 'gemini-3-flash', name: 'Gemini 3 Flash', releaseDate: new Date('2025-12-17'), provider: 'Google' },
+  { id: 'gemini-3.1-pro', name: 'Gemini 3.1 Pro', releaseDate: new Date('2026-02-19'), provider: 'Google' },
   
   // ============ META LLAMA ============
   { id: 'llama-2-7b', name: 'Llama 2 7B', releaseDate: new Date('2023-07-18'), provider: 'Meta' },
